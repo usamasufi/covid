@@ -1,0 +1,1 @@
+ D:\\Usama\ Sufi\\Flutter\ Projects\\covid\\.dart_tool\\flutter_build\\c338e2eaf201a4bedf66327b1b716d53\\native_assets.yaml: 
