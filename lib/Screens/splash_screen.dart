@@ -1,8 +1,8 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:covid/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,8 +28,8 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     Timer(
         const Duration(seconds: 5),
-        () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const HomeScreen())));
+        () => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen())));
   }
 
   @override
@@ -59,7 +59,8 @@ class _SplashScreenState extends State<SplashScreen>
             alignment: Alignment.center,
           ),
           const Text(
-            'Covid-19\nTracker App', textAlign: TextAlign.center,
+            'Covid-19\nTracker App',
+            textAlign: TextAlign.center,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
           )
         ],
