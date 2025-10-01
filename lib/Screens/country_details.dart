@@ -10,6 +10,7 @@ class CountryDetails extends StatefulWidget {
       critical,
       todayRecovered,
       test;
+
   const CountryDetails(
       {super.key,
       required this.image,
@@ -30,33 +31,65 @@ class _CountryDetailsState extends State<CountryDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
+        surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(widget.name),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [Stack(
-          alignment: Alignment.topCenter,
-          children: [
-          Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*.07),
-            child: Card(child: Column(children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .06,
-              ),
-              ReuseableRow(title: 'Cases', value: widget.totalCases.toString()),
-              ReuseableRow(title: 'Deaths', value: widget.totalDeaths.toString()),
-              ReuseableRow(title: 'Recovered', value: widget.totalRecovered.toString()),
-              ReuseableRow(title: 'Active', value: widget.active.toString()),
-              ReuseableRow(title: 'Critical', value: widget.critical.toString()),
-              ReuseableRow(title: 'Today Recovered', value: widget.todayRecovered.toString()),
-              ReuseableRow(title: 'Tests', value: widget.test.toString()),
-            ],),),
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * .07),
+                      child: Card(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * .06,
+                            ),
+                            ReuseableRow(
+                                title: 'Cases',
+                                value: widget.totalCases.toString()),
+                            ReuseableRow(
+                                title: 'Deaths',
+                                value: widget.totalDeaths.toString()),
+                            ReuseableRow(
+                                title: 'Recovered',
+                                value: widget.totalRecovered.toString()),
+                            ReuseableRow(
+                                title: 'Active',
+                                value: widget.active.toString()),
+                            ReuseableRow(
+                                title: 'Critical',
+                                value: widget.critical.toString()),
+                            ReuseableRow(
+                                title: 'Today Recovered',
+                                value: widget.todayRecovered.toString()),
+                            ReuseableRow(
+                                title: 'Tests', value: widget.test.toString()),
+                          ],
+                        ),
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(widget.image),
+                      radius: 60,
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
-            CircleAvatar(backgroundImage: NetworkImage(widget.image),radius: 60,)
-        ],)],
+        ),
       ),
     );
   }
