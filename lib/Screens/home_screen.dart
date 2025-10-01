@@ -1,6 +1,5 @@
 import 'package:covid/Model/world_states_model.dart';
 import 'package:covid/Services/states_services.dart';
-// import 'package:covid/Screens/countries_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -121,7 +120,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                 backgroundColor: const Color(0xff1aa260),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
-                            child: const Text('Track Countries'))
+                            child: const Text(
+                              'Track Countries',
+                              style: TextStyle(color: Colors.white),
+                            ))
                       ],
                     );
                   }
@@ -135,6 +137,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
 class ReuseableRow extends StatelessWidget {
   final String title, value;
+
   const ReuseableRow({super.key, required this.title, required this.value});
 
   @override
